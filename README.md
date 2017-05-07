@@ -43,7 +43,7 @@ $ npm install esformatter-jsx-indent --save-dev
 ## Configuration
 
   Add to your esformatter config file:
-```json
+```javascript
 {
   "plugins": [
     "esformatter-jsx",
@@ -55,3 +55,7 @@ $ npm install esformatter-jsx-indent --save-dev
   }
 }
 ```
+
+## License
+
+  [MIT](./LICENSE)
