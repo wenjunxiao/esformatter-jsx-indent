@@ -1,0 +1,37 @@
+{
+  "name": "esformatter-jsx-indent",
+  "version": "1.0.0",
+  "description": "esformatter plugin for jsx indent",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R test",
+    "test-cover": "node node_modules/.bin/istanbul cover _mocha",
+    "test-travis": "node --harmony node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter dot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:wenjunxiao/esformatter-jsx-indent.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wenjunxiao/esformatter-jsx-indent/issues"
+  },
+  "homepage": "https://github.com/wenjunxiao/esformatter-jsx-indent#readme",
+  "keywords": [
+    "esformatter",
+    "jsx",
+    "indent"
+  ],
+  "author": "Wenjun Xiao",
+  "license": "MIT",
+  "dependencies": {
+    "rocambole-indent": "^2.0.4",
+    "rocambole-token": "^1.2.1"
+  },
+  "devDependencies": {
+    "esformatter": "^0.10.0",
+    "esformatter-jsx": "^8.0.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.3.0",
+    "should": "^11.2.1"
+  }
+}
