@@ -28,6 +28,7 @@
     "rocambole-token": "^1.2.1"
   },
   "devDependencies": {
+    "coveralls": "^2.13.1",
     "esformatter": "^0.10.0",
     "esformatter-jsx": "^8.0.0",
     "istanbul": "^0.4.5",
