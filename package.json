@@ -1,6 +1,6 @@
 {
   "name": "esformatter-jsx-indent",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "esformatter plugin for jsx indent",
   "main": "index.js",
   "scripts": {
