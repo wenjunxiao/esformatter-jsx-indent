@@ -7,9 +7,7 @@
 
   Esformatter-jsx-indent is a plugin for 
   [esformatter](https://github.com/millermedeiros/esformatter) 
-  meant to format jsx files with a correct indent when use plugin
-  [esformatter-jsx](https://github.com/royriojas/esformatter-jsx) 
-  have  in `return` or `declare` expression.
+  meant to format jsx files with a correct indent which have `return` or `declare` expression.
 
   Turn this:
 ```js
@@ -45,13 +43,16 @@ $ npm install esformatter-jsx-indent --save-dev
   Add to your esformatter config file:
 ```javascript
 {
+  "root": true,
   "plugins": [
-    "esformatter-jsx",
     "esformatter-jsx-indent"
   ],
   "indent": {
     // By default is 1
-    "JSXExpression": 1
+    "JSXExpression": 1,
+    // By default is 0, recursively indent the sub jsx of the expression
+    // set 1 if without `esformatter-jsx`, 
+    "JSXExpression.Recursive": 0
   }
 }
 ```

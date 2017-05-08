@@ -1,13 +1,25 @@
 'use strict';
 
 const fs = require('fs');
+const path = require('path');
 const esformatter = require('esformatter');
-const esformatterJsx = require('esformatter-jsx');
 const jsxIndent = require('../');
+
+const readFile = function (folder, name) {
+  let filePath = path.join('./test', folder, name);
+  return fs.readFileSync(filePath).toString();
+};
+
+const options = {
+  root: true,
+  indent: {
+    'JSXExpression': 1,
+    'JSXExpression.Recursive': 1
+  }
+};
 
 describe('esformatter-braces', function () {
   before(function () {
-    esformatter.register(esformatterJsx);
     esformatter.register(jsxIndent);
   });
   describe('return jsx', function () {
@@ -39,6 +51,15 @@ describe('esformatter-braces', function () {
       let str = 'function comp() {\n  const a = (\n<span></span>\n);\n  return (\n<div></div>\n)\n}';
       let output = esformatter.format(str);
       output.should.be.eql('function comp() {\n  const a = (\n    <span></span>\n  );\n  return (\n    <div></div>\n  )\n}');
+    });
+    const files = fs.readdirSync('./test/fixtures/');
+    files.forEach(function (file) {
+      it('should transform fixture ' + file + ' and be equal expected file', function () {
+        let input = readFile('fixtures', file);
+        let actual = esformatter.format(input, options);
+        let expected = readFile('expected', file);
+        actual.should.be.eql(expected, 'file comparison failed: ' + file);
+      });
     });
   });
 });
